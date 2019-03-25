@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 
 typedef void(^returnBlock)(NSError *error, id result);
+typedef enum : NSUInteger {
+    DeviceBrandTypeDefault,
+    DeviceBrandTypeAQ03,
+    DeviceBrandTypeNecvoxcam,
+} DeviceBrandType;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,8 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)shareAssistant;
 - (void)destoryAssistant;
-- (BOOL)isCachedDataLocally;
-- (void)downloadAdImageFromUrl:(NSString *)imgUrl asImage:(NSString *)imgName forBrand:(NSString *)brandName andResultBlock:(returnBlock)block;
+//- (BOOL)isCachedDataLocally;
+- (void)downloadAdImageFromUrl:(NSString *)imgUrl
+                       asImage:(NSString *)imgName
+                      forBrand:(NSString *)brandName
+                andResultBlock:(returnBlock)block;
+
 
 @end
 

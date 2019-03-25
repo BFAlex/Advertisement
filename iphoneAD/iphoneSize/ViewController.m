@@ -25,13 +25,14 @@
 - (void)viewDidAppear:(BOOL)animated {
     
     [self downloadAD];
+//    [self queryLocalResource];
 }
 
 - (void)downloadAD {
     
     NSString *urlStr = @"http://139.224.70.115/upload/voxcam/image/adwance_logo.png";
     NSString *imgName = @"adwance_logo.png";
-    NSString *brand = @"AQ03";
+    NSString *brand = @"PreDeviceBrandType1";
     [[BFsAdAssistant shareAssistant] downloadAdImageFromUrl:urlStr asImage:imgName forBrand:brand andResultBlock:^(NSError *error, id result) {
             dispatch_async(dispatch_get_main_queue(), ^{                
                 NSString *localPath = (NSString *)result;
@@ -40,8 +41,11 @@
                 self.imageView.image = image;
             });
     }];
-    
-    
+}
+
+- (void)queryLocalResource {
+//    BOOL result = [[BFsAdAssistant shareAssistant] isCachedDataLocally];
+//    NSLog(@"???%d", result);
 }
 
 @end
