@@ -396,29 +396,34 @@ END_Fail:
     
     NSString *tmpFilePath = [self getTargetFilePath:localFileName brand:brand isTemp:YES];
     
-    ResultType resType;
-    NSData *imgData = UIImagePNGRepresentation(image);
-    if (!imgData) {
-        resType = ResultTypeDefaultFail;
-        goto END;
+//    ResultType resType;
+//    NSData *imgData = UIImagePNGRepresentation(image);
+//    if (!imgData) {
+//        resType = ResultTypeDefaultFail;
+//        goto END;
+//    }
+//
+//    if (![imgData writeToFile:tmpFilePath atomically:YES]) {
+//        UIImage *newImage = [self scaleImage:image];
+//        imgData = UIImagePNGRepresentation(newImage);
+//        if ([imgData writeToFile:tmpFilePath atomically:YES]) {// 保存成功
+//            // NSLog(@">>>%@保存成功", localFileName);
+//            resType = ResultTypeDefaultSuccess;
+//        }else{
+//            // NSLog(@">>>%@保存失败", localFileName);
+//            resType = ResultTypeDefaultFail;
+//        }
+//    } else {
+//        // NSLog(@"》〉》〉%@保存成功", localFileName);
+//        resType = ResultTypeDefaultSuccess;
+//    }
+    BOOL result = NO;
+    if (tmpFilePath.length > 0) {
+        result = [[BFFileAssistant defaultAssistant] saveImage:image toLocalPath:tmpFilePath];
     }
+    ResultType resType = result ? ResultTypeDefaultSuccess : ResultTypeDefaultFail;
     
-    if (![imgData writeToFile:tmpFilePath atomically:YES]) {
-        UIImage *newImage = [self scaleImage:image];
-        imgData = UIImagePNGRepresentation(newImage);
-        if ([imgData writeToFile:tmpFilePath atomically:YES]) {// 保存成功
-            // NSLog(@">>>%@保存成功", localFileName);
-            resType = ResultTypeDefaultSuccess;
-        }else{
-            // NSLog(@">>>%@保存失败", localFileName);
-            resType = ResultTypeDefaultFail;
-        }
-    } else {
-        // NSLog(@"》〉》〉%@保存成功", localFileName);
-        resType = ResultTypeDefaultSuccess;
-    }
-    
-END:
+//END:
     if (block) {
         block(nil, nil, resType);
     }

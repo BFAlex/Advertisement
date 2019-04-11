@@ -40,5 +40,6 @@ typedef void(^resultBlock)(id target, id result, NSError *error);
 
 #pragma mark - Album
 - (void)saveImage:(UIImage *)image toAlbum:(NSString *)albumName andResult:(resultBlock)resultBlock;
+- (BOOL)saveImage:(UIImage *)image toLocalPath:(NSString *)path;
 
 @end
