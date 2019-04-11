@@ -154,7 +154,8 @@ typedef enum {
             }
         } else if (PHAuthorizationStatusAuthorized == status) {
             // 保存
-            [self saveImage:image toAlbum:albumName andResult:resultBlock];
+//            [self saveImage:image toAlbum:albumName andResult:resultBlock];
+            [self saveImageIntoAlbum:image album:albumName andResult:resultBlock];
         } else if (PHAuthorizationStatusRestricted) {
             NSError *error = [self errorForDescription:@"System Error"];
             if (resultBlock) {
