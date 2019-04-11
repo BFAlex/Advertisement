@@ -24,28 +24,29 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     
-    [self downloadAD];
-//    [self queryLocalResource];
+    [self testAdvertisementModule];
 }
 
-- (void)downloadAD {
+- (void)testAdvertisementModule {
     
-    NSString *urlStr = @"http://139.224.70.115/upload/voxcam/image/adwance_logo.png";
-    NSString *imgName = @"adwance_logo.png";
-    NSString *brand = @"PreDeviceBrandType1";
-    [[BFsAdAssistant shareAssistant] downloadAdImageFromUrl:urlStr asImage:imgName forBrand:brand andResultBlock:^(NSError *error, id result) {
-            dispatch_async(dispatch_get_main_queue(), ^{                
-                NSString *localPath = (NSString *)result;
-                NSData *localData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:localPath]];
-                UIImage *image = [UIImage imageWithContentsOfFile:localPath];
-                self.imageView.image = image;
-            });
-    }];
-}
-
-- (void)queryLocalResource {
-//    BOOL result = [[BFsAdAssistant shareAssistant] isCachedDataLocally];
-//    NSLog(@"???%d", result);
+    NSString *brand = @"AQ03";
+    [[BFsAdAssistant shareAssistant] requireAdvertisementInfo];
+    //
+    NSDictionary *ads = [[BFsAdAssistant shareAssistant] loadBrandAdvertisement:brand];
+    NSLog(@"%@ >>> ads: %@", brand, ads);
+    NSArray *keys = [ads allKeys];
+    NSString *filePath;
+    for (NSString *key in keys) {
+        NSLog(@"@{%@ : %@}\n", key, [ads objectForKey:key]);
+        if (filePath.length < 1 && ![key isEqualToString:kBrandKey]) {
+            filePath = [ads objectForKey:key];
+        }
+    }
+    //
+    if (filePath.length > 0) {
+        NSData *imgData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:filePath]];
+        self.imageView.image = [UIImage imageWithData:imgData];
+    }
 }
 
 @end

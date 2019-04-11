@@ -1,19 +1,25 @@
 //
-//  BFsAdAssistant.h
-//  iphoneSize
+//  BFsAdAssistant2.h
+//  BFsAD
 //
-//  Created by 刘玲 on 2019/3/22.
+//  Created by 刘玲 on 2019/4/11.
 //  Copyright © 2019年 BFs. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-typedef void(^returnBlock)(NSError *error, id result);
+#define kBrandKey  @"brand"
+
 typedef enum : NSUInteger {
-    DeviceBrandTypeDefault,
-    DeviceBrandTypeAQ03,
-    DeviceBrandTypeNecvoxcam,
-} DeviceBrandType;
+    ResultTypeDefault,  // 不作解释
+    ResultTypeDownload,
+    ResultTypeSaveResource,
+    ResultTypeDefaultSuccess,
+    ResultTypeDefaultFail,
+} ResultType;
+
+typedef void(^resultBlock2)(id result, NSError *error, ResultType type);
+typedef void(^returnBlock)(NSError *error, id result);
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,12 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)shareAssistant;
 - (void)destoryAssistant;
-//- (BOOL)isCachedDataLocally;
-- (void)downloadAdImageFromUrl:(NSString *)imgUrl
-                       asImage:(NSString *)imgName
-                      forBrand:(NSString *)brandName
-                andResultBlock:(returnBlock)block;
-
+// 加载广告数据
+- (void)requireAdvertisementInfo;
+// 获取某品牌广告数据
+- (id)loadBrandAdvertisement:(NSString *)brand;
 
 @end
 

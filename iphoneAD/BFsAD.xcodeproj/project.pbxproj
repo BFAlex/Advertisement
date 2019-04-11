@@ -7,17 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C47AF204225EDF040085531F /* BFsAdAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = C47AF203225EDF040085531F /* BFsAdAssistant.m */; };
+		C47AF207225EF13F0085531F /* BFsBrandMode.m in Sources */ = {isa = PBXBuildFile; fileRef = C47AF206225EF13F0085531F /* BFsBrandMode.m */; };
 		C4C89C672244B1AF00DF1C30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C89C662244B1AF00DF1C30 /* AppDelegate.m */; };
 		C4C89C6A2244B1AF00DF1C30 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C89C692244B1AF00DF1C30 /* ViewController.m */; };
 		C4C89C6D2244B1AF00DF1C30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4C89C6B2244B1AF00DF1C30 /* Main.storyboard */; };
 		C4C89C6F2244B1B500DF1C30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4C89C6E2244B1B500DF1C30 /* Assets.xcassets */; };
 		C4C89C722244B1B500DF1C30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4C89C702244B1B500DF1C30 /* LaunchScreen.storyboard */; };
 		C4C89C752244B1B500DF1C30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C89C742244B1B500DF1C30 /* main.m */; };
-		C4C89C842244D86D00DF1C30 /* BFsAdAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C89C832244D86D00DF1C30 /* BFsAdAssistant.m */; };
 		C4C89C8A2244E46400DF1C30 /* BFFileAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C89C872244E46400DF1C30 /* BFFileAssistant.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C47AF202225EDF040085531F /* BFsAdAssistant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFsAdAssistant.h; sourceTree = "<group>"; };
+		C47AF203225EDF040085531F /* BFsAdAssistant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFsAdAssistant.m; sourceTree = "<group>"; };
+		C47AF205225EF13F0085531F /* BFsBrandMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFsBrandMode.h; sourceTree = "<group>"; };
+		C47AF206225EF13F0085531F /* BFsBrandMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFsBrandMode.m; sourceTree = "<group>"; };
 		C4C89C622244B1AF00DF1C30 /* BFsAD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BFsAD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4C89C652244B1AF00DF1C30 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C4C89C662244B1AF00DF1C30 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -28,8 +33,6 @@
 		C4C89C712244B1B500DF1C30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4C89C732244B1B500DF1C30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4C89C742244B1B500DF1C30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C4C89C822244D86D00DF1C30 /* BFsAdAssistant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFsAdAssistant.h; sourceTree = "<group>"; };
-		C4C89C832244D86D00DF1C30 /* BFsAdAssistant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFsAdAssistant.m; sourceTree = "<group>"; };
 		C4C89C862244E46400DF1C30 /* BFFileAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFFileAssistant.h; sourceTree = "<group>"; };
 		C4C89C872244E46400DF1C30 /* BFFileAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFFileAssistant.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -45,6 +48,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C47AF208225F128C0085531F /* Mode */ = {
+			isa = PBXGroup;
+			children = (
+				C47AF205225EF13F0085531F /* BFsBrandMode.h */,
+				C47AF206225EF13F0085531F /* BFsBrandMode.m */,
+			);
+			path = Mode;
+			sourceTree = "<group>";
+		};
 		C4C89C592244B1AF00DF1C30 = {
 			isa = PBXGroup;
 			children = (
@@ -82,8 +94,9 @@
 		C4C89C812244D7E500DF1C30 /* AdvertisementModule */ = {
 			isa = PBXGroup;
 			children = (
-				C4C89C822244D86D00DF1C30 /* BFsAdAssistant.h */,
-				C4C89C832244D86D00DF1C30 /* BFsAdAssistant.m */,
+				C47AF208225F128C0085531F /* Mode */,
+				C47AF202225EDF040085531F /* BFsAdAssistant.h */,
+				C47AF203225EDF040085531F /* BFsAdAssistant.m */,
 			);
 			path = AdvertisementModule;
 			sourceTree = "<group>";
@@ -169,8 +182,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4C89C6A2244B1AF00DF1C30 /* ViewController.m in Sources */,
-				C4C89C842244D86D00DF1C30 /* BFsAdAssistant.m in Sources */,
+				C47AF204225EDF040085531F /* BFsAdAssistant.m in Sources */,
 				C4C89C752244B1B500DF1C30 /* main.m in Sources */,
+				C47AF207225EF13F0085531F /* BFsBrandMode.m in Sources */,
 				C4C89C672244B1AF00DF1C30 /* AppDelegate.m in Sources */,
 				C4C89C8A2244E46400DF1C30 /* BFFileAssistant.m in Sources */,
 			);
@@ -316,6 +330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6C3S2B3BGX;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = iphoneSize/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -331,6 +346,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6C3S2B3BGX;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = iphoneSize/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
