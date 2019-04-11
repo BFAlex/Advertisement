@@ -23,7 +23,7 @@
 		C47AF203225EDF040085531F /* BFsAdAssistant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFsAdAssistant.m; sourceTree = "<group>"; };
 		C47AF205225EF13F0085531F /* BFsBrandMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFsBrandMode.h; sourceTree = "<group>"; };
 		C47AF206225EF13F0085531F /* BFsBrandMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFsBrandMode.m; sourceTree = "<group>"; };
-		C4C89C622244B1AF00DF1C30 /* BFsAD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BFsAD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4C89C622244B1AF00DF1C30 /* BFsAdModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BFsAdModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4C89C652244B1AF00DF1C30 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C4C89C662244B1AF00DF1C30 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C4C89C682244B1AF00DF1C30 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 		C4C89C592244B1AF00DF1C30 = {
 			isa = PBXGroup;
 			children = (
-				C4C89C642244B1AF00DF1C30 /* iphoneSize */,
+				C4C89C642244B1AF00DF1C30 /* BFsAdvertisement */,
 				C4C89C632244B1AF00DF1C30 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,12 +68,12 @@
 		C4C89C632244B1AF00DF1C30 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C4C89C622244B1AF00DF1C30 /* BFsAD.app */,
+				C4C89C622244B1AF00DF1C30 /* BFsAdModule.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C4C89C642244B1AF00DF1C30 /* iphoneSize */ = {
+		C4C89C642244B1AF00DF1C30 /* BFsAdvertisement */ = {
 			isa = PBXGroup;
 			children = (
 				C4C89C852244E46400DF1C30 /* FileManager */,
@@ -88,7 +88,7 @@
 				C4C89C732244B1B500DF1C30 /* Info.plist */,
 				C4C89C742244B1B500DF1C30 /* main.m */,
 			);
-			path = iphoneSize;
+			path = BFsAdvertisement;
 			sourceTree = "<group>";
 		};
 		C4C89C812244D7E500DF1C30 /* AdvertisementModule */ = {
@@ -113,9 +113,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C4C89C612244B1AF00DF1C30 /* BFsAD */ = {
+		C4C89C612244B1AF00DF1C30 /* BFsAdModule */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C4C89C782244B1B500DF1C30 /* Build configuration list for PBXNativeTarget "BFsAD" */;
+			buildConfigurationList = C4C89C782244B1B500DF1C30 /* Build configuration list for PBXNativeTarget "BFsAdModule" */;
 			buildPhases = (
 				C4C89C5E2244B1AF00DF1C30 /* Sources */,
 				C4C89C5F2244B1AF00DF1C30 /* Frameworks */,
@@ -125,9 +125,9 @@
 			);
 			dependencies = (
 			);
-			name = BFsAD;
+			name = BFsAdModule;
 			productName = iphoneSize;
-			productReference = C4C89C622244B1AF00DF1C30 /* BFsAD.app */;
+			productReference = C4C89C622244B1AF00DF1C30 /* BFsAdModule.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -145,7 +145,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C4C89C5D2244B1AF00DF1C30 /* Build configuration list for PBXProject "BFsAD" */;
+			buildConfigurationList = C4C89C5D2244B1AF00DF1C30 /* Build configuration list for PBXProject "BFsAdModule" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -158,7 +158,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C4C89C612244B1AF00DF1C30 /* BFsAD */,
+				C4C89C612244B1AF00DF1C30 /* BFsAdModule */,
 			);
 		};
 /* End PBXProject section */
@@ -331,7 +331,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6C3S2B3BGX;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = iphoneSize/Info.plist;
+				INFOPLIST_FILE = BFsAdvertisement/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TestAppIDs.iphoneSize;
@@ -347,7 +347,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6C3S2B3BGX;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = iphoneSize/Info.plist;
+				INFOPLIST_FILE = BFsAdvertisement/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TestAppIDs.iphoneSize;
@@ -359,7 +359,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C4C89C5D2244B1AF00DF1C30 /* Build configuration list for PBXProject "BFsAD" */ = {
+		C4C89C5D2244B1AF00DF1C30 /* Build configuration list for PBXProject "BFsAdModule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4C89C762244B1B500DF1C30 /* Debug */,
@@ -368,7 +368,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C4C89C782244B1B500DF1C30 /* Build configuration list for PBXNativeTarget "BFsAD" */ = {
+		C4C89C782244B1B500DF1C30 /* Build configuration list for PBXNativeTarget "BFsAdModule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4C89C792244B1B500DF1C30 /* Debug */,
