@@ -42,7 +42,7 @@
             filePath = [ads objectForKey:key];
         }
     }
-    //
+    // 
     if (filePath.length > 0) {
         NSData *imgData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:filePath]];
         self.imageView.image = [UIImage imageWithData:imgData];
