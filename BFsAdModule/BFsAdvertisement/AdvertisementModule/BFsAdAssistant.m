@@ -41,8 +41,8 @@ static dispatch_once_t onceToken;
     }
 }
 
-- (void)requireAdvertisementInfo {
-    NSString *pUrlStr = @"http://ligoor.com/upload/voxcam/voxcam.gson";
+- (void)requireAdvertisementInfoFromUrl:(NSString *)pUrlStr {
+    
     [self requireAdvertisementDataFromUrl:pUrlStr andResultBlock:^(NSError *error, id result) {
         if (error) {
             // NSLog(@"error: %@", error.description);
@@ -51,7 +51,6 @@ static dispatch_once_t onceToken;
             id modes = [self handleAdData:result];
             if (modes) {
                 [self downloadResourcesFromNetwork:modes andResultBlock:^(id result, NSError *error, ResultType type) {
-                    //
                     // NSLog(@"result type: %lu", (unsigned long)type);
                     if (ResultTypeSaveResource == type) {
                         // NSLog(@"end");
@@ -186,28 +185,28 @@ END_Fail:
     __block int taskFinishNum = 0;
     for (BFsBrandMode *mode in modes) {
         
-        [self addAsynchronousDownloadTaskInGroup:downloadGroup queue:downloadQueue url:mode.advertDown1 brand:mode.brand andResultBlock:^(id result, NSError *error, ResultType type) {
+        [self addAsynchronousDownloadTaskInGroup:downloadGroup queue:downloadQueue url:mode.advertDown1 brand:mode.brand localFileName:@"advertDown1" andResultBlock:^(id result, NSError *error, ResultType type)  {
             //
             // NSLog(@"task >>> %@: 1", mode.brand);
             if (type == ResultTypeDefaultSuccess) {
                 taskFinishNum++;
             }
         }];
-        [self addAsynchronousDownloadTaskInGroup:downloadGroup queue:downloadQueue url:mode.advertDown2 brand:mode.brand andResultBlock:^(id result, NSError *error, ResultType type) {
+        [self addAsynchronousDownloadTaskInGroup:downloadGroup queue:downloadQueue url:mode.advertDown2 brand:mode.brand localFileName:@"advertDown2" andResultBlock:^(id result, NSError *error, ResultType type) {
             //
             // NSLog(@"task >>> %@: 2", mode.brand);
             if (type == ResultTypeDefaultSuccess) {
                 taskFinishNum++;
             }
         }];
-        [self addAsynchronousDownloadTaskInGroup:downloadGroup queue:downloadQueue url:mode.advertDown3 brand:mode.brand andResultBlock:^(id result, NSError *error, ResultType type) {
+        [self addAsynchronousDownloadTaskInGroup:downloadGroup queue:downloadQueue url:mode.advertDown3 brand:mode.brand localFileName:@"advertDown3" andResultBlock:^(id result, NSError *error, ResultType type) {
             //
             // NSLog(@"task >>> %@: 3", mode.brand);
             if (type == ResultTypeDefaultSuccess) {
                 taskFinishNum++;
             }
         }];
-        [self addAsynchronousDownloadTaskInGroup:downloadGroup queue:downloadQueue url:mode.iconDown brand:mode.brand andResultBlock:^(id result, NSError *error, ResultType type) {
+        [self addAsynchronousDownloadTaskInGroup:downloadGroup queue:downloadQueue url:mode.iconDown brand:mode.brand localFileName:@"iconDown" andResultBlock:^(id result, NSError *error, ResultType type) {
             //
             // NSLog(@"task >>> %@: icon", mode.brand);
             if (type == ResultTypeDefaultSuccess) {
@@ -242,7 +241,7 @@ END_Fail:
     __block int taskFinishNum = 0;
     for (BFsBrandMode *mode in modes) {
         
-        [self addAsynchronousMoveTaskInGroup:moveGroup queue:moveQueue url:mode.advertDown1 brand:mode.brand andResultBlock:^(id result, NSError *error, ResultType type) {
+        [self addAsynchronousMoveTaskInGroup:moveGroup queue:moveQueue url:mode.advertDown1 brand:mode.brand localFileName:@"advertDown1" andResultBlock:^(id result, NSError *error, ResultType type) {
             //
             // NSLog(@"move >>> %@: 1", mode.brand);
             if (type == ResultTypeDefaultSuccess) {
@@ -250,7 +249,7 @@ END_Fail:
             }
         }];
         
-        [self addAsynchronousMoveTaskInGroup:moveGroup queue:moveQueue url:mode.advertDown2 brand:mode.brand andResultBlock:^(id result, NSError *error, ResultType type) {
+        [self addAsynchronousMoveTaskInGroup:moveGroup queue:moveQueue url:mode.advertDown2 brand:mode.brand localFileName:@"advertDown2" andResultBlock:^(id result, NSError *error, ResultType type) {
             //
             // NSLog(@"move >>> %@: 2", mode.brand);
             if (type == ResultTypeDefaultSuccess) {
@@ -258,7 +257,7 @@ END_Fail:
             }
         }];
         
-        [self addAsynchronousMoveTaskInGroup:moveGroup queue:moveQueue url:mode.advertDown3 brand:mode.brand andResultBlock:^(id result, NSError *error, ResultType type) {
+        [self addAsynchronousMoveTaskInGroup:moveGroup queue:moveQueue url:mode.advertDown3 brand:mode.brand localFileName:@"advertDown3" andResultBlock:^(id result, NSError *error, ResultType type) {
             //
             // NSLog(@"move >>> %@: 3", mode.brand);
             if (type == ResultTypeDefaultSuccess) {
@@ -266,7 +265,7 @@ END_Fail:
             }
         }];
         
-        [self addAsynchronousMoveTaskInGroup:moveGroup queue:moveQueue url:mode.iconDown brand:mode.brand andResultBlock:^(id result, NSError *error, ResultType type) {
+        [self addAsynchronousMoveTaskInGroup:moveGroup queue:moveQueue url:mode.iconDown brand:mode.brand localFileName:@"iconDown" andResultBlock:^(id result, NSError *error, ResultType type) {
             //
             // NSLog(@"move >>> %@: icon", mode.brand);
             if (type == ResultTypeDefaultSuccess) {
@@ -305,11 +304,17 @@ END_Fail:
                                      queue:(dispatch_queue_t)taskQueue
                                        url:(NSString *)urlStr
                                      brand:(NSString *)brand
+                         localFileName:(NSString *)localName
                             andResultBlock:(resultBlock2)block {
     
     ResultType resType;
     BFFileAssistant *fileAssistant = [BFFileAssistant defaultAssistant];
     NSString *fileName = [[urlStr componentsSeparatedByString:@"/"] lastObject];
+    if (localName.length > 0) {
+        NSString *preName = [[localName componentsSeparatedByString:@"."] firstObject];
+        NSString *fileHuffix = [[fileName componentsSeparatedByString:@"."] lastObject];
+        fileName = [NSString stringWithFormat:@"%@.%@", preName, fileHuffix];
+    }
     
     NSString *tmpFileDire = [self getTargetBrandDirectoryPath:brand isTempDirectory:YES];
     BOOL isExists = [fileAssistant fileExists:fileName inDirectoryPath:tmpFileDire];
@@ -338,7 +343,8 @@ END_Fail:
 - (void)addAsynchronousDownloadTaskInGroup:(dispatch_group_t)taskGroup
                              queue:(dispatch_queue_t)taskQueue
                                url:(NSString *)urlStr
-                             brand:(NSString *)brand
+                                     brand:(NSString *)brand
+                             localFileName:(NSString *)localName
                     andResultBlock:(resultBlock2)block {
     
     dispatch_group_async(taskGroup, taskQueue, ^{
@@ -353,6 +359,11 @@ END_Fail:
         
         // 把图片保存到本地
         NSString *fileName = [[urlStr componentsSeparatedByString:@"/"] lastObject];
+        if (localName.length > 0) {
+            NSString *preName = [[localName componentsSeparatedByString:@"."] firstObject];
+            NSString *fileHuffix = [[fileName componentsSeparatedByString:@"."] lastObject];
+            fileName = [NSString stringWithFormat:@"%@.%@", preName, fileHuffix];
+        }
         [self saveToLocalImage:image name:fileName brand:brand andResultBlock:block];
     });
 }

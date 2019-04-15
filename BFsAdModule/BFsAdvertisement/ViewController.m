@@ -29,8 +29,9 @@
 
 - (void)testAdvertisementModule {
     
+    NSString *pUrlStr = @"http://ligoor.com/upload/voxcam/voxcam.gson";
     NSString *brand = @"AQ03";
-    [[BFsAdAssistant shareAssistant] requireAdvertisementInfo];
+    [[BFsAdAssistant shareAssistant] requireAdvertisementInfoFromUrl:pUrlStr];
     //
     NSDictionary *ads = [[BFsAdAssistant shareAssistant] loadBrandAdvertisement:brand];
     NSLog(@"%@ >>> ads: %@", brand, ads);

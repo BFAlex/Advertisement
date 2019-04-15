@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)shareAssistant;
 - (void)destoryAssistant;
 // 加载广告数据
-- (void)requireAdvertisementInfo;
+- (void)requireAdvertisementInfoFromUrl:(NSString *)pUrlStr;
 // 获取某品牌广告数据
 - (id)loadBrandAdvertisement:(NSString *)brand;
 

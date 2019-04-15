@@ -82,7 +82,7 @@ typedef enum {
     
     NSArray *fileList = [self.fileManager contentsOfDirectoryAtPath:directoryPath error:&fError];
     for (NSString *file in fileList) {
-        NSLog(@"%@子目录之一：%@", self.fileManager, file);
+//        NSLog(@"%@子目录之一：%@", self.fileManager, file);
         if (file) {
             [files addObject:file];
         }
