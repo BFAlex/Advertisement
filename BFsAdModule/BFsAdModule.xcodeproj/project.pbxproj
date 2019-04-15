@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C47AF204225EDF040085531F /* BFsAdAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = C47AF203225EDF040085531F /* BFsAdAssistant.m */; };
 		C47AF207225EF13F0085531F /* BFsBrandMode.m in Sources */ = {isa = PBXBuildFile; fileRef = C47AF206225EF13F0085531F /* BFsBrandMode.m */; };
+		C494FCFD22646E1A000E5D76 /* BFsAdAssistant2.m in Sources */ = {isa = PBXBuildFile; fileRef = C494FCFC22646E1A000E5D76 /* BFsAdAssistant2.m */; };
 		C4C89C672244B1AF00DF1C30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C89C662244B1AF00DF1C30 /* AppDelegate.m */; };
 		C4C89C6A2244B1AF00DF1C30 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C89C692244B1AF00DF1C30 /* ViewController.m */; };
 		C4C89C6D2244B1AF00DF1C30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4C89C6B2244B1AF00DF1C30 /* Main.storyboard */; };
@@ -23,6 +24,8 @@
 		C47AF203225EDF040085531F /* BFsAdAssistant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFsAdAssistant.m; sourceTree = "<group>"; };
 		C47AF205225EF13F0085531F /* BFsBrandMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFsBrandMode.h; sourceTree = "<group>"; };
 		C47AF206225EF13F0085531F /* BFsBrandMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFsBrandMode.m; sourceTree = "<group>"; };
+		C494FCFB22646E1A000E5D76 /* BFsAdAssistant2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFsAdAssistant2.h; sourceTree = "<group>"; };
+		C494FCFC22646E1A000E5D76 /* BFsAdAssistant2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFsAdAssistant2.m; sourceTree = "<group>"; };
 		C4C89C622244B1AF00DF1C30 /* BFsAdModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BFsAdModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4C89C652244B1AF00DF1C30 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C4C89C662244B1AF00DF1C30 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -55,6 +58,25 @@
 				C47AF206225EF13F0085531F /* BFsBrandMode.m */,
 			);
 			path = Mode;
+			sourceTree = "<group>";
+		};
+		C494FCFE22646E24000E5D76 /* v1 */ = {
+			isa = PBXGroup;
+			children = (
+				C47AF202225EDF040085531F /* BFsAdAssistant.h */,
+				C47AF203225EDF040085531F /* BFsAdAssistant.m */,
+			);
+			path = v1;
+			sourceTree = "<group>";
+		};
+		C494FD0022646F17000E5D76 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C494FCFB22646E1A000E5D76 /* BFsAdAssistant2.h */,
+				C494FCFC22646E1A000E5D76 /* BFsAdAssistant2.m */,
+				C494FCFE22646E24000E5D76 /* v1 */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		C4C89C592244B1AF00DF1C30 = {
@@ -94,9 +116,8 @@
 		C4C89C812244D7E500DF1C30 /* AdvertisementModule */ = {
 			isa = PBXGroup;
 			children = (
+				C494FD0022646F17000E5D76 /* Controller */,
 				C47AF208225F128C0085531F /* Mode */,
-				C47AF202225EDF040085531F /* BFsAdAssistant.h */,
-				C47AF203225EDF040085531F /* BFsAdAssistant.m */,
 			);
 			path = AdvertisementModule;
 			sourceTree = "<group>";
@@ -185,6 +206,7 @@
 				C47AF204225EDF040085531F /* BFsAdAssistant.m in Sources */,
 				C4C89C752244B1B500DF1C30 /* main.m in Sources */,
 				C47AF207225EF13F0085531F /* BFsBrandMode.m in Sources */,
+				C494FCFD22646E1A000E5D76 /* BFsAdAssistant2.m in Sources */,
 				C4C89C672244B1AF00DF1C30 /* AppDelegate.m in Sources */,
 				C4C89C8A2244E46400DF1C30 /* BFFileAssistant.m in Sources */,
 			);
